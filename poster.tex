@@ -1,49 +1,112 @@
-\documentclass[final]{beamer}
-  \mode<presentation>
-  {
-% you can chose your theme here:
+\documentclass[final,t]{beamer}
+\mode<presentation>
+{
+%  \usetheme{Warsaw}
 %  \usetheme{Aachen}
+%  \usetheme{Oldi6}
+%  \usetheme{I6td}
   \usetheme{I6dv}
 %  \usetheme{I6pd}
-%      \usetheme{Berlin}
 %  \usetheme{I6pd2}
-%  \usetheme{I6td}
-%  \usetheme{Oldi6}
 }
-\graphicspath{{figures/}}
-
+% additional settings
+\setbeamerfont{itemize}{size=\normalsize}
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+% additional packages
+\usepackage{ragged2e}
+\usepackage{minted}
+\usepackage{lipsum}
 \usepackage{times}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usepackage{exscale}
+%\boldmath
+\usepackage{booktabs, array}
+%\usepackage{rotating} %sideways environment
 \usepackage[english]{babel}
 \usepackage[latin1]{inputenc}
-\usepackage[orientation=landscape,size=custom,width=109.728,height=91.44,scale=1,debug]{beamerposter}  % e.g. custom size poster
-  \title{scikit-bio: a Python library for bioinformaticians and data scientists}
-  \author{Evan T. Bolyen, The scikit-bio Development Team and J. Gregory Caporaso}
-  \institute{Center for Microbial Genetics and Genomics, Northern Arizona University}
-  \date{Jul. 31th, 2007}
-  \begin{document}
-  \begin{frame}{}
-    \vfill
-    \begin{block}{\large Fontsizes}
-      \centering
-      {\tiny tiny}\par
-      {\scriptsize scriptsize}\par
-      {\footnotesize footnotesize}\par
-      {\normalsize normalsize}\par
-      {\large large}\par
-      {\Large Large}\par
-      {\LARGE LARGE}\par
-      {\veryHuge veryHuge}\par
-      {\VeryHuge VeryHuge}\par
-      {\VERYHuge VERYHuge}\par
-    \end{block}
-    \vfill
-  \end{frame}
-  \end{document}
+\usepackage[orientation=landscape,size=custom,width=109.728,height=91.44,scale=1]{beamerposter}
+\addtobeamertemplate{block begin}{}{\justifying}
+\listfiles
+\graphicspath{{figures/}}
+% Display a grid to help align images
+%\beamertemplategridbackground[1cm]
 
+\title{\huge scikit-bio: a Python library for bioinformaticians and data scientists}
+\author{Evan T. Bolyen, The scikit-bio Development Team and J. Gregory Caporaso}
+\institute{Affiliations go here}
+
+% abbreviations
+\usepackage{xspace}
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+\def\eg{{e.g}\onedot} \def\Eg{{E.g}\onedot}
+\def\ie{{i.e}\onedot} \def\Ie{{I.e}\onedot}
+\def\cf{{c.f}\onedot} \def\Cf{{C.f}\onedot}
+\def\etc{{etc}\onedot}
+\def\vs{{vs}\onedot}
+\def\wrt{w.r.t\onedot}
+\def\dof{d.o.f\onedot}
+\def\etal{{et al}\onedot}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{frame}{}
+  \begin{columns}[t]
+    \begin{column}{.3\linewidth}
+
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+      \begin{block}{Introduction}
+          \lipsum[1]
+          \lipsum[2]
+      \end{block}
+
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+      \begin{block}{Code Sample}
+        \inputminted{python}{assets/py/convert_fastq.py}
+      \end{block}
+
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+      \begin{block}{Code Sample}
+        \inputminted{python}{assets/py/convert_fastq.py}
+      \end{block}
+
+    \end{column}
+    \begin{column}{.3\linewidth}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \begin{block}{Code Sample}
+          \inputminted{python}{assets/py/convert_fastq.py}
+        \end{block}
+
+    \end{column}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{column}{.3\linewidth}
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \begin{block}{Code Sample}
+          \inputminted{python}{assets/py/convert_fastq.py}
+        \end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\end{document}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-PDF-mode: t
+%%% End:
