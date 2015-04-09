@@ -15,7 +15,6 @@
 \setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
 % additional packages
 \usepackage{ragged2e}
-\usepackage{minted}
 \usepackage{lipsum}
 \usepackage{times}
 \usepackage{amsmath,amsthm, amssymb, latexsym}
@@ -61,20 +60,21 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
       \begin{block}{Introduction}
-          \lipsum[1]
-          \lipsum[2]
+          \lipsum[1-2]
       \end{block}
 
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-      \begin{block}{Code Sample}
-        \inputminted{python}{assets/py/convert_fastq.py}
+      \begin{block}{Convert Fasta/Qual to FastQ}
+        \python{assets/py/convert_fastq.py}
       \end{block}
 
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-      \begin{block}{Code Sample}
-        \inputminted{python}{assets/py/convert_fastq.py}
+      \begin{block}{Find Pairwise Similarity}
+        \python{assets/py/pairwise_similarity.py}
+        \newline\newline
+        \ttfamily{0.591048436542}
       \end{block}
 
     \end{column}
@@ -82,7 +82,7 @@
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
         \begin{block}{Code Sample}
-          \inputminted{python}{assets/py/convert_fastq.py}
+          \python{assets/py/convert_fastq.py}
         \end{block}
 
     \end{column}
@@ -94,7 +94,7 @@
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
         \begin{block}{Code Sample}
-          \inputminted{python}{assets/py/convert_fastq.py}
+          \python{assets/py/convert_fastq.py}
         \end{block}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

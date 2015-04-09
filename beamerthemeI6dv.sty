@@ -1,5 +1,6 @@
 \ProvidesPackage{beamerthemeI6dv} % this style was created by David Vilar
 
+\usepackage{minted}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \selectcolormodel{HTML}
 \mode<presentation>
@@ -19,6 +20,18 @@
 \definecolor{i6colorschemeHeadline}{HTML}{003466}  % for headline bg
 %\definecolor{i6colorschemeFootline}{HTML}{000000}  % for headline bg
 \definecolor{i6colorschemeFootline}{HTML}{003466}  % for headline bg
+
+\definecolor{i6colorschemeCode}{HTML}{F0F0F0}
+
+\definecolor{mintedbackground}{rgb}{0.95,0.95,0.95}
+
+\newmintedfile[python]{python}{
+bgcolor=mintedbackground,
+funcnamehighlighting=true,
+framesep=.5cm,
+framerule=0pt,
+frame=single,
+}
 
 % headline colors and fonts
 \setbeamercolor{headline}{fg=white,bg=i6colorschemeHeadline}
@@ -45,6 +58,7 @@
 \setbeamerfont{example title}{size=\large,series=\bf,bg=i6colorscheme1,fg=white}
 
 
+\setbeamercolor{code}{bg=i6colorschemeCode}
 %\setbeamercolor*{example body}{fg=white,bg=i6colorscheme4}
 %\setbeamercolor*{example title}{fg=white,bg=i6colorscheme1}
 
@@ -69,7 +83,7 @@
 \setbeamertemplate{block begin}{
   \vskip.75ex
   \begin{beamercolorbox}[colsep*=.75ex]{block title}%
-    \usebeamerfont*{block title}\MakeUppercase{\Large \insertblocktitle}
+    \usebeamerfont*{block title}\centering \MakeUppercase{ \Large \insertblocktitle}
   \end{beamercolorbox}%
   {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
   \usebeamerfont{block body}%
@@ -139,7 +153,7 @@
   \end{beamercolorbox}
 
   \begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{footline}%
-    Things Here \hfill GitHub: \texttt{https://github.com/biocore/scikit-bio}
+    Made with \LaTeX \hfill GitHub: \texttt{https://github.com/biocore/scikit-bio}
     \vskip1ex
   \end{beamercolorbox}
 }
