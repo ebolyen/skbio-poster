@@ -12,8 +12,8 @@
 \definecolor{i6bluedark}{rgb}{0.0156,0.2578,0.5625}
 % http://www.colorsontheweb.com/colorwizard.asp#wizard, used start set: #0066cc
 \definecolor{i6colorscheme1}{HTML}{618F75}  % e.g. for block title
-\definecolor{i6colorblockbg}{HTML}{FFFFFF}
-\definecolor{i6colorblockfg}{HTML}{003466}
+\definecolor{i6colorblockbg}{HTML}{003466}
+\definecolor{i6colorblockfg}{HTML}{FFFFFF}
 \definecolor{i6colorscheme2}{HTML}{000000}  % e.g. title in headline
 \definecolor{i6colorscheme3}{HTML}{FFFFFF}  % e.g. for poster background
 \definecolor{i6colorscheme4}{HTML}{000000}
@@ -31,13 +31,14 @@ funcnamehighlighting=true,
 framesep=.5cm,
 framerule=0pt,
 frame=single,
+fontsize=\small,
 }
 
 % headline colors and fonts
 \setbeamercolor{headline}{fg=white,bg=i6colorschemeHeadline}
 \setbeamercolor{title in headline}{fg=white}
-\setbeamercolor{author in headline}{fg=lightgray}
-\setbeamercolor{institute in headline}{fg=lightgray}
+\setbeamercolor{author in headline}{fg=mintedbackground}
+\setbeamercolor{institute in headline}{fg=mintedbackground}
 \setbeamercolor{logo in headline}{fg=black,bg=lightgray}
 \setbeamercolor{separation line}{bg=i6colorscheme1}
 
@@ -79,11 +80,14 @@ frame=single,
 \setbeamertemplate{itemize items}[triangle]
 \setbeamertemplate{navigation symbols}{}  % no navigation on a poster
 
+\setbeamerfont{block body}{size=\large}
+\setbeamerfont{block body alerted}{size=\large}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{block begin}{
   \vskip.75ex
   \begin{beamercolorbox}[colsep*=.75ex]{block title}%
-    \usebeamerfont*{block title}\centering \MakeUppercase{ \Large \insertblocktitle}
+    \usebeamerfont*{block title}\centering \Large \insertblocktitle
   \end{beamercolorbox}%
   {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
   \usebeamerfont{block body}%
@@ -91,6 +95,20 @@ frame=single,
     \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
   }
   \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{alertblock begin}{
+  \vskip.75ex
+  \begin{beamercolorbox}[colsep*=.75ex]{block title}%
+    \usebeamerfont*{block title}\centering \Large \insertblocktitle
+  \end{beamercolorbox}%
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=.75ex,sep=.75ex,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{alertblock end}{
   \end{beamercolorbox}
 }
 
@@ -109,7 +127,7 @@ frame=single,
         \vskip1ex
       \end{column}
       \begin{column}{.675\paperwidth}
-        \vskip4ex
+        \vskip8ex
         \raggedleft
         \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
         \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
@@ -152,8 +170,8 @@ frame=single,
     \rule{0pt}{10pt}
   \end{beamercolorbox}
 
-  \begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{footline}%
-    Made with \LaTeX \hfill GitHub: \texttt{https://github.com/biocore/scikit-bio}
+  \begin{beamercolorbox}[ht=4ex,leftskip=.02\paperwidth,rightskip=.03\paperwidth]{footline}%
+    Made with \LaTeX, this poster can be found at: URL \hfill Updated for scikit-bio version: 0.2.3  \hfill GitHub: \texttt{https://github.com/biocore/scikit-bio}
     \vskip1ex
   \end{beamercolorbox}
 }
