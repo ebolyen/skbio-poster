@@ -15,6 +15,8 @@
 \setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
 % additional packages
 \usepackage{ragged2e}
+\usepackage{verbatim}
+\usepackage{textcomp}
 \usepackage[ampersand]{easylist}
 \usepackage{lipsum}
 \usepackage{times}
@@ -25,7 +27,7 @@
 %\usepackage{rotating} %sideways environment
 \usepackage[english]{babel}
 \usepackage[latin1]{inputenc}
-\usepackage[orientation=landscape,size=custom,width=109.728,height=91.44,scale=1]{beamerposter}
+\usepackage[orientation=landscape,size=custom,width=109.728,height=88.9,scale=1]{beamerposter}
 \addtobeamertemplate{block begin}{}{\justifying}
 \listfiles
 \graphicspath{{figures/}}
@@ -33,8 +35,8 @@
 %\beamertemplategridbackground[1cm]
 
 \title{\huge scikit-bio: a Python library for bioinformaticians and data scientists}
-\author{Evan T. Bolyen, The scikit-bio Development Team and J. Gregory Caporaso}
-\institute{Affiliations go here}
+\author{Evan T. Bolyen$^{a,b}$, The scikit-bio Development Team$^{c}$ and J. Gregory Caporaso$^{a,b,d}$}
+\institute{$^{a}$Center for Microbial Genetics and Genomics - Northern Arizona Univ.; $^{b}$Department of Computer Science - Northern Arizona Univ.;\\ $^{c}$https://github.com/biocore/scikit-bio/graphs/contributors; $^{d}$Department of Biological Sciences - Northern Arizona Univ.}
 
 % abbreviations
 \usepackage{xspace}
@@ -58,40 +60,74 @@
   \begin{columns}[t]
     \begin{column}{.3\linewidth}
         \begin{alertblock}{\includegraphics[width=1\linewidth]{assets/skbio}\newline\newline}
-          scikit-bio is an open-source, BSD-licensed python package providing data structures, algorithms and educational resources for bioinformatics.
+          scikit-bio is an open-source, BSD-licensed Python package providing data structures, algorithms and educational resources for bioinformatics.
           \newline\newline
         \end{alertblock}
 
         \begin{block}{GOALS}
-            \large{\begin{itemize}
-                \item[$\bullet$] Make building tools like QIIME easier.
-                \item[$\bullet$] Provide Data Structures and Algorithms.
-                \item[$\bullet$] Domain specific API that maps biological vocabulary to implementation.
-                \item[$\bullet$] Extensive supporting documentation.
-                \item[$\bullet$] Optimized wherever possible.
-                \item[$\bullet$] Rigorously tested.
-            \end{itemize}}
+            \begin{itemize}
+                \item[$\bullet$] \textbf{Simple to use} \\
+                - There is no need to be a Computer Scientist to make it work.
+                \item[$\bullet$] \textbf{Make building tools like QIIME $^{[1]}$ easier} \\
+                - Does most of the heavy lifting, only intention is needed.
+                \item[$\bullet$] \textbf{Extensive supporting documentation} \\
+                - Documentation is available in many forms.
+                \item[$\bullet$] \textbf{Domain specific API that maps biological vocabulary to implementation} \\
+                - The API is named and styled in a way that makes sense.
+                \item[$\bullet$] \textbf{Optimized wherever possible} \\
+                - Some implementations are written in very fast ``c'' code.
+                \item[$\bullet$] \textbf{Rigorously tested} \\
+                - Continuous integration tests: functionality, coverage, documentation, and style.
+            \end{itemize}
         \end{block}
 
-        \begin{block}{\uppercase{Current Users of scikit-bio}}
-
-            \large{\begin{itemize}
-              \item[$\bullet$] QIIME 1.9 \hfill \\
-              - Quatitative Insights Intro Microbial Ecology
-              \item[$\bullet$] ghosttree
-          \end{itemize}}
+        \begin{block}{Intended Audience}
+            \textbf{Bioinformaticians:}
+            \begin{itemize}
+                \item[$\bullet$] Rigorously tested optimizations
+                \item[$\bullet$] File format and external library interoperability
+                \item[$\bullet$] Performance ``escape-hatches''
+                \newline
+            \end{itemize}
+            \textbf{Data Scientists:}
+            \begin{itemize}
+                \item[$\bullet$] Powerful integration with IPython $^{[2]}$ (Jupyter) notebooks
+                \item[$\bullet$] Data validation
+                \item[$\bullet$] Consistent API
+                \newline
+            \end{itemize}
+            \textbf{Students:}
+            \begin{itemize}
+                \item[$\bullet$] Excellent documentation
+                \item[$\bullet$] External resources
+                \item[$\bullet$] Easy to understand error messages
+                \newline
+            \end{itemize}
         \end{block}
 
-        \begin{block}{\uppercase{Future Users of scikit-bio}}
-            \large{\begin{itemize}
-              \item[$\bullet$] QIIME 2
-              \item[$\bullet$] qiita
-          \end{itemize}}
+
+        \begin{block}{Projects Using scikit-bio}
+            \textbf{Current Projects:} \\
+            \begin{itemize}
+              \item[$\bullet$] QIIME 1.9 $^{[1]}$ - Quantitative Insights Into Microbial Ecology \hfill \\
+              Used as the core library that powers most of the scripts available.
+              \newline
+              \item[$\bullet$] ghosttree $^{[3]}$ - 18S/ITS Phylogenetic Scaffolding System \hfill \\
+              Uses IO and TreeNode to read databases and manipulate phylogenies to produce a combined 18S/ITS tree.
+              \newline
+              \item[$\bullet$] Qiita $^{[4]}$ - Spot Patterns \hfill \\
+              Uses many aspects of scikit-bio (and QIIME) to analyze -omics data.
+              \newline
+
+            \end{itemize}
+
+            \textbf{Future Projects:} \\
+            \begin{itemize}
+              \item[$\bullet$] QIIME 2 - A stronger, faster, easier to use QIIME \hfill \\
+              Still under developement, but scikit-bio will be used by the entirety of this project.
+              \newline
+          \end{itemize}
         \end{block}
-
-
-
-
 
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -101,96 +137,89 @@
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-        \begin{block}{\uppercase{Documentation}}
+        \begin{block}{Documentation}
             Documentation for scikit-bio is available in many forms:
-            \newline\newline
             \begin{columns}
                 \begin{column}{.45\linewidth}
                     \begin{minipage}[c][15cm][c]{\linewidth}
                         \href{http://scikit-bio.org}{\color{blue}\underline{scikit-bio.org}}
                         \newline\newline
-                        Our website provides the API documentation is an easy to read form.
+                        Our website provides \textbf{complete} API documentation. \\Included are: inputs, outputs, reference matrial, and examples. In addition we provide the scikit-bio ``cookbook'' which has even more in-depth examples and use-cases (\href{http://scikit-bio.org/cookbook}{\color{blue}\underline{scikit-bio.org/cookbook}}).
 
                     \end{minipage}
                     \begin{minipage}[c][15cm][c]{\linewidth}
                         \href{http://applied-bioinformatics.org}{\color{blue}\underline{applied-bioinformatics.org}}
                         \newline\newline
-                        Introduction to Applied Bioinformatics
-                    \end{minipage}
-                    \begin{minipage}[c][15cm][c]{\linewidth}
-                        \href{http://scikit-bio.org/cookbook}{\color{blue}\underline{scikit-bio.org/cookbook}}
-                        \newline\newline
+                        Introduction to Applied Bioinformatics is a companion e-text that teaches bioinformatics concepts and techniques using scikit-bio.
                     \end{minipage}
                 \end{column}
                 \begin{column}{.45\linewidth}
                     \begin{minipage}[c][15cm][c]{\linewidth}
-                    \includegraphics[width=1\linewidth]{assets/website}\\
-                \end{minipage}
-                        \begin{minipage}[c][15cm][c]{\linewidth}
-                    \includegraphics[width=1\linewidth]{assets/iab}\\
-                \end{minipage}
-                        \begin{minipage}[c][15cm][c]{\linewidth}
-                    \includegraphics[width=1\linewidth]{assets/cookbook}
-                \end{minipage}
+                        \includegraphics[width=1\linewidth]{assets/website}\\
+                    \end{minipage}
+                    \begin{minipage}[c][15cm][c]{\linewidth}
+                        \includegraphics[width=1\linewidth]{assets/iab}\\
+                    \end{minipage}
                 \end{column}
             \end{columns}
+            Additionally, all API documentation is accessible from within the source code, an interactive session, and IPython $^{[2]}$ (Jupyter).
 
         \end{block}
+
+        \begin{block}{Identifying File Formats}
+            Another exciting feature of scikit-bio are ``sniffers'' which can automatically detect the format of a file and read it into a data-structure. \newline\newline
+            \python{assets/py/sniff.py}
+            \verbatiminput{assets/sniff.out} \vspace{1cm}
+            This step is automatically done in all of scikit-bio's IO methods.
+        \end{block}
+
+        \begin{block}{Find Pairwise Similarity}
+          Now that the format of ``seq1'' is known, we can find the similarity to ``seq2''. This is done by computing a global alignment and finding the Hamming distance between the aligned sequences.
+          \newline\newline
+          \python{assets/py/pairwise_similarity.py}
+          \verbatiminput{assets/pairwise.out} \vspace{1cm}
+        \end{block}
+
+
 
     \end{column}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \begin{column}{.3\linewidth}
+        \begin{block}{Replicating 88 Soils Study}
+            With scikit-bio it is possible to reach the same conclusions as Lauber CL et al. 2009 $^{[5]}$ from within an IPython $^{[2]}$ (Jupyter) notebook. To see the entire replicated study, see ``Exploring microbial community diversity'' in the scikit-bio ``cookbook''.
+            \newline\newline
+            \python{assets/py/pcoa.py}
+            \includegraphics[width=1\linewidth]{assets/ordination_out.eps}\\
+            From this figure, we can see a gradient by pH.
+        \end{block}
+
+        \begin{block}{Future Work}
+            We intend to have a beta-release and a paper publication in conjunction with the SciPy 2015 conference (beginning of July).
+            
+        \end{block}
+        \begin{block}{References}
+            \begin{itemize}
+              {\footnotesize
+              \item[1]Caporaso, J Gregory et al. ``QIIME allows analysis of high-throughput community sequencing data.'' Nature methods 7.5 (2010): 335-336.
+              \item[2]Perez, Fernando, and Brian E. Granger. ``IPython: a system for interactive scientific computing.'' Computing in Science \& Engineering 9.3 (2007): 21-29.
+              \item[3]Jennifer Fouquier et al. ``ghost-tree: a tool for creating fungal hybrid-gene phylogenetic trees.'' To be published.
+              \item[4]http://qiita.ucsd.edu
+              \item[5]Lauber, Christian L., et al. ``Pyrosequencing-based assessment of soil pH as a predictor of soil bacterial community structure at the continental scale.'' Applied and environmental microbiology 75.15 (2009): 5111-5120.
+              }
+          \end{itemize}
+        \end{block}
 
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-          \begin{block}{\uppercase{Convert Fasta/Qual to FastQ}}
-            There are a lot of file formats in bioinformatics, one common challenge is taking data encoded in one format, and transforming it into something else (often a different format).
-            \newline\newline
-            \python{assets/py/convert_fastq.py}
-            \newline
-            This streamed full records one at a time into a new format.\newline\newline
-            Another exciting feature of scikit-bio are ``sniffers'' which can automatically detect the format of a file and read it into a data-structure.
 
-          \end{block}
 
-          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-          \begin{block}{\uppercase{Find Pairwise Similarity}}
-            Short explanation on why this is useful.
-            \newline\newline
-            \python{assets/py/pairwise_similarity.py}
-            \newline\newline
-            \ttfamily{0.591048436542}
-          \end{block}
-
-        \begin{columns}
-        \begin{column}{.02\linewidth} \end{column}
-            \begin{column}{.48\linewidth}
-                \begin{block}{\uppercase{References}}
-                    References will go here
-                \end{block}
-            \end{column}
-            \begin{column}{.48\linewidth}
-                \begin{block}{\uppercase{Acknowledgements}}
-                    Acknowledgements will go here.
-                \end{block}
-            \end{column}
-        \end{columns}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \end{column}
   \end{columns}
-  \begin{columns}
-      \begin{column}{.02\linewidth} \end{column}
-      \begin{column}{.9625\linewidth}
-          \begin{block}{TAKEAWAY}
-              Test
-          \end{block}
-      \end{column}
-      \begin{column}{.0175\linewidth} \end{column}
-  \end{columns}
+
 \end{frame}
 
 \end{document}
