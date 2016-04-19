@@ -31,7 +31,7 @@ funcnamehighlighting=true,
 framesep=.5cm,
 framerule=0pt,
 frame=single,
-fontsize=\small,
+fontsize=\fontsize{24pt}{24pt},
 }
 
 % headline colors and fonts
@@ -72,17 +72,19 @@ fontsize=\small,
 \setbeamercolor{alerted text}{fg=i6colorscheme1}
 %\setbeamercolor{structure}{fg=i6blue}
 
-%  \setbeamertemplate{itemize/enumerate body begin}{
-%  }
+\setbeamertemplate{itemize/enumerate body begin}{
+\large
+}
 %  \setbeamertemplate{itemize/enumerate body end}{
 %  }
 
-\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{itemize items}[circle]
+\setbeamerfont{itemize body}{size=\Huge}
+
 \setbeamertemplate{navigation symbols}{}  % no navigation on a poster
 
-\setbeamerfont{block body}{size=\normalsize}
-\setbeamerfont{block body alerted}{size=\large}
-
+\setbeamerfont{block body}{size=\fontsize{32pt}{40pt}}
+\setbeamerfont{block body alerted}{size=\fontsize{38pt}{46pt}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{block begin}{
   \vskip.75ex
